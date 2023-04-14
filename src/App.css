@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(149, 193, 141);
 }
 
 .App-logo {
@@ -35,4 +36,30 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+ul {
+  list-style-type: none;
+}
+
+nav.navContainer {
+  background-color: rgb(227, 166, 223);
+  min-height: 100vh;
+  width: calc(15%);
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+nav.navContainer .navItemContainer {
+  padding: 20px;
+}
+
+.postsContainer {
+  background-color: rgb(128, 128, 219);
+}
+
+.footer {
+  background-color: aqua;
 }
