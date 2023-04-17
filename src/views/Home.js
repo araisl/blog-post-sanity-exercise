@@ -6,7 +6,6 @@ import Posts from './../components/Posts'
 function Home (){
 	return (
 		<div className="App">
-			<NavBar />
 			<Heading />
 			<Posts />
 			<Footer />

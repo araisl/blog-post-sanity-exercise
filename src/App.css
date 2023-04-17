@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   background-color: rgb(149, 193, 141);
@@ -38,13 +42,56 @@
   }
 }
 
-ul {
-  list-style-type: none;
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: rgb(24, 34, 34);
+  color: #fff;
 }
 
-nav.navContainer {
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.menu {
+  display: flex;
+  gap: 1em;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+li {
+  float: left;
+  border-right: 1px solid #bbb;
+}
+
+a {
+  display: block;
+  padding: 8px;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+/* nav.navContainer {
   background-color: rgb(227, 166, 223);
-  min-height: 100vh;
+  min-height: 30vh;
   width: calc(15%);
   min-width: 180px;
   display: flex;
@@ -54,7 +101,7 @@ nav.navContainer {
 
 nav.navContainer .navItemContainer {
   padding: 20px;
-}
+} */
 
 .postsContainer {
   background-color: rgb(128, 128, 219);
