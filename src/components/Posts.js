@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Post from './Post';
 import Button from './Button';
+import Heading from './Heading';
 
 const PROJECT_ID = "1oup0h9h";
 const   DATASET = "production";
@@ -29,6 +30,7 @@ const Posts = () => {
 
   return(
     <div className='postsContainer'>
+      <Heading />
       <br/> <br/>
       <button onClick={() => showPosts()}> Show the posts </button>
       {/* <Button /> */}

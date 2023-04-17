@@ -107,6 +107,10 @@ nav.navContainer .navItemContainer {
   background-color: rgb(128, 128, 219);
 }
 
+button {
+  background-color: #92d49d;
+}
+
 .footer {
   background-color: aqua;
 }

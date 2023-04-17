@@ -1,10 +1,11 @@
 import React from 'react'
 import Logo from './Logo';
 import logo from  '../taktsoft-logo.svg';
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
+		<header>
     <nav className="navContainer">
 			<ul>
 				<div className='menu'>
@@ -28,6 +29,7 @@ const NavBar = () => {
 					</Link>
 			</div>
 	  </nav>
+		</header>
   )
 }
 

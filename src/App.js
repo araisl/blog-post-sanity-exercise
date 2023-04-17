@@ -1,4 +1,5 @@
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 // Routing
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
@@ -14,12 +15,15 @@ const App = () => {
     <BrowserRouter>
       <div className="App">
 			  <NavBar />
-		  </div>
-      <Routes>
-        <Route exact path='/' element={< Home />}></Route>
-        <Route exact path='/about' element={< About />}></Route>
-        <Route exact path='/posts' element={< postsView />}></Route>
-      </Routes>
+		  
+        <Routes>
+          <Route exact path='/' element={< Home />}></Route>
+          <Route exact path='/about' element={< About />}></Route>
+          <Route exact path='/posts' element={< postsView />}></Route>
+        </Routes>
+
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

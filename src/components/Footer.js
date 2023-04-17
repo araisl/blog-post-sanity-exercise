@@ -1,8 +1,12 @@
 const Footer = () => {
   return (
     <div>
-        <h2 className="footer"> This is the footer </h2>
-      
+      <p>
+        © Exercise done by Andreas Raisl, working at
+        <a href="https://taktsoft.com/" style={{ color: "#FE043C" }}>
+          Taktsoft
+        </a>
+      </p>
     </div>
   )
 }
