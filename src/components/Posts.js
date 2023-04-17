@@ -1,51 +1,70 @@
-import {useState} from 'react';
 import Post from './Post';
-import Button from './Button';
 import Heading from './Heading';
 
-const PROJECT_ID = "1oup0h9h";
-const   DATASET = "production";
-const   QUERY = encodeURIComponent('*[_type == "post"]');
-const URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
+import React, { useState, useEffect } from "react";
+import sanityClient from "../cmsClient";
 
 const Posts = () => {
-
   const [posts, setPosts] = useState([]);
   const [showText, setShowText] = useState(false);
 
-  const toggleText = () => {
-    console.log('Toggling text');
-  }
+  // const toggleText = () => {
+  //   console.log('Toggling text');
+  // }
 
-  const showPosts = () => {
-    fetch(URL)
-      .then((res) => {
-        return res.json();
-      })
-      .then(({ result }) => {
-      setPosts(result);
-      })
-      .catch((err) => console.error(err));
-  }
+  // const showPosts = () => {
+  //   fetch(URL)
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then(({ result }) => {
+  //     setPosts(result);
+  //     })
+  //     .catch((err) => console.error(err));
+  // }
+
+
+
+  useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "post"]{
+      title,
+      slug,
+      description,
+      mainImage{
+        asset->{
+          _id,
+          url
+        },
+      },
+      body,
+    }`
+			)
+			.then((data) => setPosts(data))
+			.catch(console.error);
+
+	}, []);
 
   return(
     <div className='postsContainer'>
       <Heading />
       <br/> <br/>
-      <button onClick={() => showPosts()}> Show the posts </button>
+      <h3> Alle Posts </h3>
+      {/* <button onClick={() => showPosts()}> Show the posts </button> */}
       {/* <Button /> */}
       <br/> <br/>
-      <ul>
+      <div>
         {
           posts.map((post) => {
             return (<Post
               title={post.title}
               text={post.body}
-              toggleText={toggleText}
-              key={post.id} />)
+              //toggleText={toggleText}
+              key={post._id} />)
           })
         }
-      </ul>
+      </div>
       <br/> <br/>
     </div>
   );

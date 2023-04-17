@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./views/Home";
 import About from "./views/About";
 import postsView from "./views/Posts";
+import Posts from './components/Posts';
 
 // styles
 import "./App.css";
@@ -19,7 +20,7 @@ const App = () => {
         <Routes>
           <Route exact path='/' element={< Home />}></Route>
           <Route exact path='/about' element={< About />}></Route>
-          <Route exact path='/posts' element={< postsView />}></Route>
+          <Route exact path='/posts' element={< Posts />}></Route>
         </Routes>
 
         <Footer />

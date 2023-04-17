@@ -3,7 +3,7 @@ import Posts from './../components/Posts'
 function Home (){
 	return (
 		<section>
-			<Posts />
+			<h2> Willkommen zu Andreas Reise- und Eisenbahnblog </h2>
 		</section>
 	)
 }
