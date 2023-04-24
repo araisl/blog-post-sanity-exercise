@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
 
+import Button from '@mui/material/Button';
+
 const builder = imageUrlBuilder(sanityClient);
 
 function urlFor(source) {
@@ -15,9 +17,9 @@ const Category = ({category}) => {
       <h2> { category.title } </h2>
       <p>{category.description}</p>
       <Link to={"/filteredposts/" + category.slug.current}>
-        <button style={{ backgroundColor: "aqua" }}>
+        <Button variant="contained">
             Posts anzeigen
-        </button>
+        </Button>
       </Link>
 
       <br/> <br/>

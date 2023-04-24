@@ -1,6 +1,3 @@
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-
 // Routing
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./views/Home";
@@ -9,6 +6,9 @@ import Post from "./views/Post";
 import Posts from './views/Posts';
 import Authors from './views/Authors';
 import FilteredPosts from './views/FilteredPosts';
+
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer';
 
 // styles
 import "./App.css";

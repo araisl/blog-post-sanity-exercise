@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
+import Button from "@mui/material/Button";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -34,9 +35,9 @@ const PostPreview = ({post}) => {
 			<p>Beschreibung: { post.description }</p>
 
 			<Link to={"/post/" + post.slug.current}>
-				<button	style={{ backgroundColor: "#FE043C" }}>
+				<Button variant="contained">
 					Lesen
-				</button>
+				</Button>
 			</Link>
             <br/> <br/>
     </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import sanityClient from "../cmsClient";
 import Category from "./Category";
+import Button from '@mui/material/Button';
 
 const Categories = () => {
 

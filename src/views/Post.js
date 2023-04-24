@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
+import Button from '@mui/material/Button';
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -47,7 +48,6 @@ const Post = () => {
 		<div>
 		{
 			posts.map((post) => {
-				console.log('Der Text ist: ', post.body[0].children[0].text);
 				return (
 					<>
 					<h2> {post.title} </h2>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
+import Button from "@mui/material/Button";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -44,9 +45,9 @@ const FilteredPosts = () => {
 							<img src={urlFor(post.mainImage).width(200).url()}/>
 							<p> Kurzbeschreibung: { post.description } </p>
 							<Link to={"/post/" + post.slug.current}>
-								<button	style={{ backgroundColor: "#FE043C" }}>
+								<Button variant="contained">
 									Lesen
-								</button>
+								</Button>
 							</Link>
 						</div>
 					)

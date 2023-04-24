@@ -1,6 +1,5 @@
 import aboutPageImage from "../aboutPageImage.jpg";
 
-
 function About () {
 	return (
 		<div>
@@ -37,4 +36,5 @@ function About () {
 		</div>
 	)
 }
+
 export default About;
