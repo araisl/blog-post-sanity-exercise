@@ -14,7 +14,7 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <Outlet />
       {/* <Footer /> */}
     </>
