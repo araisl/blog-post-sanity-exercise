@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
 
+import Grid from '@mui/material/Grid'; // Grid version 1
+
 const builder = imageUrlBuilder(sanityClient);
 
 
@@ -38,9 +40,10 @@ const Authors = () => {
 			.catch(console.error);
 	}, []);
 	return(
-		<h1> All Authors </h1>
+		<Grid item xs={8}>
+			<h1> All Authors </h1>
+		</Grid>
 	)
-
 }
 
 export default Authors;

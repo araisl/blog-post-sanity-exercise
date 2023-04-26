@@ -4,19 +4,18 @@ import Heading from '../components/Heading';
 import React, { useState, useEffect } from "react";
 import sanityClient from "../cmsClient";
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
+import Grid from '@mui/material/Grid';
+import PostPreviewCard from '../components/PostPreviewCard';
 
-  // const showPosts = () => {
-  //   fetch(URL)
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then(({ result }) => {
-  //     setPosts(result);
-  //     })
-  //     .catch((err) => console.error(err));
-  // }
+import Container from '@mui/material/Container';
+
+const Posts = () => {
+  const [posts, setPosts] = useState([])
+
+  const containerStyles = {
+    backgroundColor: '#404080',
+    color: 'white'
+  }
 
   useEffect(() => {
 		sanityClient
@@ -44,22 +43,25 @@ const Posts = () => {
 	}, []);
 
   return(
-    <div className='postsContainer'>
-      <Heading />
+    <Container sx={containerStyles}>
       <br/> <br/>
-      <h1> Alle Posts </h1>
-      <br/> <br/>
-      <div>
-        {
-          posts.map((post) => {
-            return (<PostPreview
-            post={post}
-            key={post._id} />)
-          })
-        }
-      </div>
-      <br/> <br/>
-    </div>
+
+        <Heading />
+        <br/> <br/>
+        <h1> Alle Posts </h1>
+        <br/> <br/>
+        <Grid container spacing={5}>
+
+          {
+            posts.map((post) => {
+              return (
+                <PostPreviewCard post={post} />
+              )
+            })
+          }
+
+      </Grid>
+    </Container>
   );
 }
 

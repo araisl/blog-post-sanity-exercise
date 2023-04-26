@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
-import Button from "@mui/material/Button";
+import BaseButton from '../components/BaseButton';
+
+import Grid from '@mui/material/Grid'; // Grid version 1
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -13,6 +15,17 @@ const FilteredPosts = () => {
   const {slug} = useParams();
 	const [filteredPosts, setFilteredPosts] = useState([]);
 	const [category, setCategory] = useState({});
+
+	const buttonStyles = {
+    fontSize: '0.875rem',
+    fontWeight: 600,
+    backgroundColor: '#F09440',
+    textTransform: 'capitalize',
+    borderRadius: 2.5,
+    '&:hover': {
+      backgroundColor: '#F0B36A'
+    }
+  };
 
 	useEffect(() => {
 		sanityClient.fetch(
@@ -35,7 +48,7 @@ const FilteredPosts = () => {
 	console.log('Filtered Posts ist: ', filteredPosts);
 
   return (
-    <div>
+    <Grid item xs={8}>
       <h1> Alle Posts der Kategorie { category.title } </h1>
 			{
 				filteredPosts.map((post) => {
@@ -45,15 +58,15 @@ const FilteredPosts = () => {
 							<img src={urlFor(post.mainImage).width(200).url()}/>
 							<p> Kurzbeschreibung: { post.description } </p>
 							<Link to={"/post/" + post.slug.current}>
-								<Button variant="contained">
+								<BaseButton sx={buttonStyles} variant="contained" color="success">
 									Lesen
-								</Button>
+								</BaseButton>
 							</Link>
 						</div>
 					)
 				})
 			}
-    </div>
+    </Grid>
   )
 }
 

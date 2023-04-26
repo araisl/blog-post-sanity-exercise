@@ -1,38 +1,44 @@
+import PeopleIcon from '@mui/icons-material/People';
+import HomeIcon from '@mui/icons-material/Home';
+import ArticleIcon from '@mui/icons-material/Article';
+import InfoIcon from '@mui/icons-material/Info';
+import CategoryIcon from '@mui/icons-material/Category';
+
 export const mainNavbarItems = [
   {
 		id: 0,
-		icon: '',
+		icon: <HomeIcon />,
 		label: 'Home',
-		route: 'route',
+		route: '/',
 	},
 	{
 		id: 1,
-		icon: '',
+		icon: <ArticleIcon />,
 		label: 'Posts',
-		route: 'route',
+		route: 'posts',
 	},
 	{
 		id: 2,
-		icon: '',
+		icon: <PeopleIcon />,
 		label: 'Authors',
-		route: 'route',
+		route: 'authors',
 	},
 	{
 		id: 3,
-		icon: '',
+		icon: <InfoIcon />,
 		label: 'About',
-		route: 'route',
+		route: 'about',
 	},
 	{
 		id: 4,
-		icon: '',
+		icon: <CategoryIcon />,
 		label: 'Categories',
-		route: 'route',
+		route: 'categories',
 	},
 	{
 		id: 5,
 		icon: '',
 		label: 'About Taktsoft',
-		route: 'route',
+		route: 'https://taktsoft.com',
 	},
 ];

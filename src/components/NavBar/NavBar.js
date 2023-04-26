@@ -7,40 +7,44 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
+import {useNavigate, Link} from 'react-router-dom';
 
 import {mainNavbarItems} from './consts/navbarItems'
-
-const drawerWidth = 220;
+import { navbarStyles } from './styles';
 
 const NavBar = () => {
+
+	const navigateTo = useNavigate();
+
 	return(
 		<Drawer
-			sx={{
-				width: drawerWidth,
-				flexShrink: 0,
-				'& .MuiDrawer-paper': {
-					width: drawerWidth,
-					boxSizing: 'border-box',
-				},
-			}}
+			sx={navbarStyles.drawer}
 			variant="permanent"
 			anchor="left"
 		>
 			<Toolbar />
 			<Divider />
 			<List>
-				{mainNavbarItems.map((item, index) => (
-					<ListItem key={item.id} disablePadding>
+				{mainNavbarItems.map((item) => (
+					<ListItem onClick={() => navigateTo(item.route)} key={item.id} disablePadding>
 						<ListItemButton>
-							<ListItemIcon>
+							<ListItemIcon sx={navbarStyles.icons}>
 								{item.icon}
 							</ListItemIcon>
-							<ListItemText primary={item.label} />
+							<ListItemText sx={navbarStyles.text} primary={item.label} />
 						</ListItemButton>
 					</ListItem>
 				))}
+				<Link to="https://taktsoft.com">
+					<ListItem disablePadding>
+						<ListItemButton>
+							<ListItemIcon sx={navbarStyles.icons}>
+							</ListItemIcon>
+							<ListItemText sx={navbarStyles.text} primary={"Taktsoft"} />
+						</ListItemButton>
+					</ListItem>
+				</Link>
 			</List>
 			<Divider />
 		</Drawer>

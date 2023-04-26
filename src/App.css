@@ -72,10 +72,7 @@
   border-right: 1px solid #bbb;
 }
 
-a {
-  display: block;
-  padding: 8px;
-}
+
 
 .navItemContainer a{
   display: block;
@@ -89,32 +86,19 @@ a {
   background-color: #111;
 }
 
-/* nav.navContainer {
-  background-color: rgb(227, 166, 223);
-  min-height: 30vh;
-  width: calc(15%);
-  min-width: 180px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-nav.navContainer .navItemContainer {
-  padding: 20px;
-} */
-
 .postsContainer {
-  background-color: rgb(128, 128, 219);
-}
-
-.post {
-  background-color: rgb(63, 164, 198);
+  background-color: rgb(64, 64, 182);
 }
 
 button {
-  background-color: #92d49d;
+  background-color: #F09440;
 }
 
 .footer {
-  background-color: aqua;
+  background-color: rgb(61, 42, 174);
+}
+
+.img {
+  width: 100%;
+  height: 15rem;
 }

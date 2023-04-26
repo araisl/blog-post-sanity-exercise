@@ -1,25 +1,32 @@
 import { Link } from "react-router-dom";
-import sanityClient from "../cmsClient";
-import imageUrlBuilder from "@sanity/image-url";
+import BaseButton from './BaseButton';
 
-import Button from '@mui/material/Button';
+// const builder = imageUrlBuilder(sanityClient);
 
-const builder = imageUrlBuilder(sanityClient);
-
-function urlFor(source) {
-	return builder.image(source);
-}
+// function urlFor(source) {
+// 	return builder.image(source);
+// }
 
 const Category = ({category}) => {
+
+  const buttonStyles = {
+    fontSize: '0.875rem',
+    fontWeight: 600,
+    backgroundColor: '#F09440',
+    textTransform: 'capitalize',
+    borderRadius: 2.5,
+    '&:hover': {
+      backgroundColor: '#F0B36A'
+    }
+  };
+
   return (
     <div>
       <br/> <br/>
       <h2> { category.title } </h2>
       <p>{category.description}</p>
       <Link to={"/filteredposts/" + category.slug.current}>
-        <Button variant="contained">
-            Posts anzeigen
-        </Button>
+        <BaseButton sx={buttonStyles} variant="contained" color="success">Posts anzeigen</BaseButton>
       </Link>
 
       <br/> <br/>

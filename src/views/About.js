@@ -1,8 +1,10 @@
 import aboutPageImage from "../aboutPageImage.jpg";
+import Grid from '@mui/material/Grid'; // Grid version 1
+import Grid2 from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 function About () {
 	return (
-		<div>
+		<Grid item xs={8}>
 			<h1>This is a blog about railways</h1>
 			<img src={ aboutPageImage } width="800px" />
 
@@ -33,7 +35,7 @@ function About () {
 			<a href="https://taktsoft.com/">
 					Taktsoft
 			</a>
-		</div>
+		</Grid>
 	)
 }
 

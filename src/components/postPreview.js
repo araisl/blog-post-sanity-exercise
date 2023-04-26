@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
-import Button from "@mui/material/Button";
+import BaseButton from "./BaseButton";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -10,10 +10,16 @@ function urlFor(source) {
 
 const PostPreview = ({post}) => {
 
-  //const [showText, setShowText] = useState(false);
-
-	console.log(post);
-	console.log(post.author.name);
+  const buttonStyles = {
+	fontSize: '0.875rem',
+	fontWeight: 600,
+	backgroundColor: '#F09440',
+	textTransform: 'capitalize',
+	borderRadius: 2.5,
+	'&:hover': {
+		backgroundColor: '#F0B36A'
+	}
+  };
 
   return (
     <div className='post'>
@@ -21,23 +27,19 @@ const PostPreview = ({post}) => {
 			<img src={urlFor(post.mainImage).width(200).url()} alt={post.title} />
 			<p> Author: { post.author.name } </p>
 			<p> Kategorien: </p>
-			<ul>
+			<div>
 			{
 				post.categories.map((cat) => {
 					return (
-						<li>
-							<Link to={"/filteredposts/" + cat.slug.current}>{ cat.title }</Link>
-					  </li>
+						<Link to={"/filteredposts/" + cat.slug.current}>{ cat.title }</Link>
 					)
 				})
 			}
-			</ul>
+			</div>
 			<p>Beschreibung: { post.description }</p>
 
 			<Link to={"/post/" + post.slug.current}>
-				<Button variant="contained">
-					Lesen
-				</Button>
+				<BaseButton sx={buttonStyles} size="large" color="success" variant="contained">Lesen</BaseButton>
 			</Link>
             <br/> <br/>
     </div>

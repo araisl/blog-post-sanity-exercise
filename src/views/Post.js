@@ -4,6 +4,8 @@ import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
 import Button from '@mui/material/Button';
 
+import SanityBlockContent from "@sanity/block-content-to-react";
+
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
 	return builder.image(source);
@@ -52,7 +54,8 @@ const Post = () => {
 					<>
 					<h2> {post.title} </h2>
 
-					<p> {post.body[0].children[0].text} </p>
+					{/* <p> {post.body[0].children[0].text} </p> */}
+					<SanityBlockContent blocks={post.body} />
 
 					<img src={urlFor(post.mainImage).width(800).url()}/>
 					</>
