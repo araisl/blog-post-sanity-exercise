@@ -1,20 +1,26 @@
-import PostPreview from '../components/postPreview';
+// own Components
+//import PostPreview from '../components/postPreview';
 import Heading from '../components/Heading';
+import PostPreviewCard from '../components/PostPreviewCard';
+import SearchAppBar from '../components/AppBar';
 
+// React Hooks
 import React, { useState, useEffect } from "react";
+
+//Sanity
 import sanityClient from "../cmsClient";
 
-import Grid from '@mui/material/Grid';
-import PostPreviewCard from '../components/PostPreviewCard';
+// Material UI Components
+import {Grid, Container, Typography} from '@mui/material';
 
-import Container from '@mui/material/Container';
 
 const Posts = () => {
   const [posts, setPosts] = useState([])
 
   const containerStyles = {
     backgroundColor: '#404080',
-    color: 'white'
+    color: 'white',
+    marginY: 5
   }
 
   useEffect(() => {
@@ -44,22 +50,19 @@ const Posts = () => {
 
   return(
     <Container sx={containerStyles}>
-      <br/> <br/>
+        <Heading text="Andreas Eisenbahnblog"/>
+        <Typography variant="h2" component="h2" marginBottom={2}>
+          Alle Posts
+        </Typography>
 
-        <Heading />
-        <br/> <br/>
-        <h1> Alle Posts </h1>
-        <br/> <br/>
         <Grid container spacing={5}>
-
           {
-            posts.map((post) => {
+            posts.map((post, index) => {
               return (
-                <PostPreviewCard post={post} />
+                <PostPreviewCard post={post} key={index} />
               )
             })
           }
-
       </Grid>
     </Container>
   );

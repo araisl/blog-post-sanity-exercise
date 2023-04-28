@@ -35,10 +35,10 @@ export const mainNavbarItems = [
 		label: 'Categories',
 		route: 'categories',
 	},
-	{
-		id: 5,
-		icon: '',
-		label: 'About Taktsoft',
-		route: 'https://taktsoft.com',
-	},
+	// {
+	// 	id: 5,
+	// 	icon: '',
+	// 	label: 'About Taktsoft',
+	// 	route: 'https://taktsoft.com',
+	// },
 ];

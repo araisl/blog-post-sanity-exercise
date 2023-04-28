@@ -1,10 +1,11 @@
 import React from 'react'
+import { Typography } from '@mui/material'
 
-const Heading = () => {
+const Heading = ({ text }) => {
   return (
-    <>
-      <h1> Andreas Eisenbahnblog </h1>
-    </>
+    <Typography variant="h1" component="h1" marginTop={5} marginBottom={3}>
+      { text }
+    </Typography>
   )
 }
 

@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
 import Button from '@mui/material/Button';
+//import Container from '@mui/material/Container';
+import Container from '@mui/material/Container';
 
 import SanityBlockContent from "@sanity/block-content-to-react";
 
@@ -47,6 +49,7 @@ const Post = () => {
 
 
   return (
+		<Container>
 		<div>
 		{
 			posts.map((post) => {
@@ -63,6 +66,7 @@ const Post = () => {
 			})
 		}
 		</div>
+		</Container>
   )
 }
 

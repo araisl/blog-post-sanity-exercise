@@ -4,6 +4,11 @@ import sanityClient from "../cmsClient";
 import imageUrlBuilder from "@sanity/image-url";
 
 import Grid from '@mui/material/Grid'; // Grid version 1
+import Container from '@mui/material/Container';
+import { Typography } from "@mui/material";
+
+import AuthorCard from '../components/AuthorCard';
+
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -22,7 +27,7 @@ const Authors = () => {
     useEffect(() => {
 		sanityClient
 			.fetch(
-				`*[_type == "foods"]{
+				`*[_type == "author"]{
 					_id,
       		name,
       		nickname,
@@ -40,10 +45,48 @@ const Authors = () => {
 			.catch(console.error);
 	}, []);
 	return(
-		<Grid item xs={8}>
-			<h1> All Authors </h1>
-		</Grid>
+		<Container>
+		{/* <Grid item xs={4}> */}
+
+			<Typography>
+				<h1> Alle Autoren </h1>
+			</Typography>
+			<Grid container spacing={5}>
+			{
+				authors.map((author, index) => {
+					return(
+						<AuthorCard author={author} key={index}/>
+					)
+				})
+			}
+			</Grid>
+
+		</Container>
 	)
 }
 
 export default Authors;
+
+
+
+{/* <Container sx={containerStyles}>
+      <Typography>
+
+      <br/> <br/>
+
+        <Heading />
+      </Typography>
+
+        <br/> <br/>
+        <h1> Alle Posts </h1>
+        <br/> <br/>
+        <Grid container spacing={5}>
+          {
+            posts.map((post) => {
+              return (
+                <PostPreviewCard post={post} />
+              )
+            })
+          }
+      </Grid>
+    </Container> */}

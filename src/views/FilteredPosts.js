@@ -5,6 +5,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import BaseButton from '../components/BaseButton';
 
 import Grid from '@mui/material/Grid'; // Grid version 1
+import { Container } from "@mui/system";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -48,6 +49,7 @@ const FilteredPosts = () => {
 	console.log('Filtered Posts ist: ', filteredPosts);
 
   return (
+	<Container>
     <Grid item xs={8}>
       <h1> Alle Posts der Kategorie { category.title } </h1>
 			{
@@ -67,6 +69,7 @@ const FilteredPosts = () => {
 				})
 			}
     </Grid>
+	</Container>
   )
 }
 

@@ -19,7 +19,7 @@ import imageUrlBuilder from "@sanity/image-url";
 //import { createTheme } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material';
 
-const previewCardTheme = createTheme({
+const authorCardTheme = createTheme({
 	components: {
 		MuiTypography: {
 			variants: [
@@ -88,13 +88,22 @@ const simpleBoxStyles = {
 	marginTop: 2
 };
 
-const PostPreviewCard = ({post}) => {
+const AuthorCard = ({author}) => {
   return (
     <Grid item xs={4}>
-			<ThemeProvider theme={previewCardTheme}>
+			<ThemeProvider theme={authorCardTheme}>
 				<Paper elevation={3}>
-					<img className="img" src={urlFor(post.mainImage).width(200).url()} alt={post.title} />
-					<Box paddingX={1}>
+
+
+				<Typography variant="h4" component="h2" marginTop={5} marginBottom={3}>
+					{author.name}
+				</Typography>
+				<img className="img" src={urlFor(author.avatar).width(200).url()} alt={author.name} />
+
+
+
+					
+					{/* <Box paddingX={1}>
 						<Typography sx={postTitleStyles} variant="h6" component="h2">
 							{ post.title }
 						</Typography>
@@ -132,10 +141,10 @@ const PostPreviewCard = ({post}) => {
 						</Box>
 						<Box sx={simpleBoxStyles}>
 							<Link to={"/post/" + post.slug.current} >
-								<BaseButton size="large" color="orange" variant="contained">Lesen</BaseButton>
+								<BaseButton size="large" color="purple" variant="contained">Lesen</BaseButton>
 							</Link>
 						</Box>
-					</Box>
+					</Box>  */}
 
 					{/* <PostPreview post={post} key={post._id} /> */}
 				</Paper>
@@ -144,4 +153,6 @@ const PostPreviewCard = ({post}) => {
   )
 }
 
-export default PostPreviewCard
+export default AuthorCard
+
+
