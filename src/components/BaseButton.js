@@ -9,10 +9,10 @@ const BaseButton = ({ children, color, disabled, size, variant,sx }) => {
 
   return (
       <Button
-        color={color}
+        //color={color}
         disabled={disabled}
         size={size}
-        variant={variant}
+        variant={color}
         sx={sx}
       >
         { children }
