@@ -10,6 +10,9 @@ import Authors from './views/Authors';
 import FilteredPosts from './views/FilteredPosts';
 import Categories from "./components/Categories";
 
+import "@kickstartds/base/lib/global/base.js";
+import "@kickstartds/base/lib/global/base.css";
+
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {ThemeProvider} from '@mui/material/styles';

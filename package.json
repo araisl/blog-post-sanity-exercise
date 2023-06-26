@@ -5,6 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@kickstartds/base": "^2.0.3",
+    "@kickstartds/content": "^2.0.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.1",
     "@portabletext/react": "^2.0.2",
@@ -15,6 +17,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "groq": "^3.8.3",
+    "kickstartds": "^1.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
@@ -25,7 +28,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "init-tokens": "kickstartDS tokens init",
+    "build-tokens": "kickstartDS tokens compile"
   },
   "eslintConfig": {
     "extends": [
